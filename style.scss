@@ -1,14 +1,27 @@
-$temp-cols : 100px 2fr 1fr;
-$temp-rows : 40px 2fr 1fr 25px;
+/* variables */
+$container-width : 750px;
+$container-height : 300px;
+$margin-bottom : 30px;
+$grid-gap : .4rem;
+/* Grid Columns */
+$col1_w : 100px;
+$col2_w : 2fr;
+$col3_w : 1fr;
+/* Grid Rows */
+$row1_h : 40px;
+$row2_h : 2fr;
+$row3_h : 1fr;
+$row4_h : 30px;
+
 /* Basic Layout */
 .container-b {
   display: grid;
-  width: 750px;
-  height: 300px;
-  margin-bottom: 30px;
-  grid-template-columns: $temp-cols;
-  grid-template-rows: $temp-rows;
-  grid-gap: .4rem;
+  width: $container-width;
+  height: $container-height;
+  grid-gap: $grid-gap;
+  margin-bottom: $margin-bottom;
+  grid-template-columns: $col1_w $col2_w $col3_w;
+  grid-template-rows: $row1_h $row2_h $row3_h $row4_h;
 
   .header {
     grid-row: 1 / 2;
@@ -44,12 +57,12 @@ $temp-rows : 40px 2fr 1fr 25px;
 /* Template Areas */
 .container-a {
   display: grid;
-  width: 750px;
-  height: 300px;
-  margin-bottom: 30px;
-  grid-template-columns: $temp-cols;
-  grid-template-rows: $temp-rows;
-  grid-gap: .4rem;
+  width: $container-width;
+  height: $container-height;
+  grid-gap: $grid-gap;
+  margin-bottom: $margin-bottom;
+  grid-template-columns: $col1_w $col2_w $col3_w;
+  grid-template-rows: $row1_h $row2_h $row3_h $row4_h;
   grid-template-areas:
     "header header header"
     "sidebar content-1 content-1"
@@ -81,22 +94,22 @@ $temp-rows : 40px 2fr 1fr 25px;
   }
 }
 
-/* Named Lines */
+/* Named Lines - try to change the layout */
 .container {
   display: grid;
-  width: 750px;
-  height: 300px;
-  grid-gap: .4rem;
+  width: $container-width;
+  height: $container-height;
+  grid-gap: $grid-gap;
   grid-template-columns:
-    [m-st cnt-st] 200px
-    [col2-st] 2fr
-    [col3-st cnt-ed sb-st] 1fr
+    [m-st cnt-st] $col1_w * 2
+    [col2-st] $col2_w
+    [col3-st cnt-ed sb-st] $col3_w
     [m-ed sb-ed];
   grid-template-rows:
-    [row1-st] 40px
-    [row2-st] 2fr
-    [row3-st] 1fr
-    [row4-st] 50px
+    [row1-st] $row1_h * 1.5
+    [row2-st] $row2_h
+    [row3-st] $row3_h
+    [row4-st] $row4_h * 1.5
     [row4-ed];
 
   .header {
@@ -131,7 +144,7 @@ $temp-rows : 40px 2fr 1fr 25px;
 }
 
 
-/* OTHER STYLES */
+/* Decorative Styles */
 body {
   background-color: #3b404e;
   display: flex;

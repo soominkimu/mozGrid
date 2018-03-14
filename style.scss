@@ -216,3 +216,8 @@ body {
   background-image: linear-gradient(230deg, #3EDFD7 0%, #29A49D 90%);
 }
 
+@media (max-width: $container-width) {
+  .container-b, .container-a, .container {
+    width: $container-width / 2;
+  }
+}

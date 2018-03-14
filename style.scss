@@ -1,0 +1,205 @@
+$temp-cols : 100px 2fr 1fr;
+$temp-rows : 40px 2fr 1fr 25px;
+/* Basic Layout */
+.container-b {
+  display: grid;
+  width: 750px;
+  height: 300px;
+  margin-bottom: 30px;
+  grid-template-columns: $temp-cols;
+  grid-template-rows: $temp-rows;
+  grid-gap: .4rem;
+
+  .header {
+    grid-row: 1 / 2;
+    grid-column: 1 / 4;
+  }
+
+  .sidebar {
+    grid-row: 2 / 4;
+    grid-column: 1 / 2;
+  }
+
+  .content-1 {
+    grid-row: 2 / 3;
+    grid-column: 2 / 4;
+  }
+
+  .content-2 {
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+  }
+
+  .content-3 {
+    grid-row: 3 / 4;
+    grid-column: 3 / 4;
+  }
+
+  .footer {
+    grid-row: 4 / 5;
+    grid-column: 1 / 4;
+  }
+}
+
+/* Template Areas */
+.container-a {
+  display: grid;
+  width: 750px;
+  height: 300px;
+  margin-bottom: 30px;
+  grid-template-columns: $temp-cols;
+  grid-template-rows: $temp-rows;
+  grid-gap: .4rem;
+  grid-template-areas:
+    "header header header"
+    "sidebar content-1 content-1"
+    "sidebar content-2 content-3"
+    "footer footer footer";
+
+  .header {
+    grid-area: header;
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+  }
+
+  .content-1 {
+    grid-area: content-1;
+  }
+
+  .content-2 {
+    grid-area: content-2;
+  }
+
+  .content-3 {
+    grid-area: content-3;
+  }
+
+  .footer {
+    grid-area: footer;
+  }
+}
+
+/* Named Lines */
+.container {
+  display: grid;
+  width: 750px;
+  height: 300px;
+  grid-gap: .4rem;
+  grid-template-columns:
+    [m-st cnt-st] 200px
+    [col2-st] 2fr
+    [col3-st cnt-ed sb-st] 1fr
+    [m-ed sb-ed];
+  grid-template-rows:
+    [row1-st] 40px
+    [row2-st] 2fr
+    [row3-st] 1fr
+    [row4-st] 50px
+    [row4-ed];
+
+  .header {
+    grid-column: m-st / m-ed;
+    grid-row: row1-st / row2-st;
+  }
+
+  .sidebar {
+    grid-column: sb-st / sb-ed;
+    grid-row: row2-st / row4-st;
+  }
+
+  .content-1 {
+    grid-column: cnt-st / cnt-ed;
+    grid-row: row2-st / row3-st;
+  }
+
+  .content-2 {
+    grid-column: cnt-st / col2-st;
+    grid-row: row3-st / row4-st;
+  }
+
+  .content-3 {
+    grid-column: col2-st / cnt-ed;
+    grid-row: row3-st / row4-st;
+  }
+
+  .footer {
+    grid-column: m-st / m-ed;
+    grid-row: row4-st / row4-ed;
+  }
+}
+
+
+/* OTHER STYLES */
+body {
+  background-color: #3b404e;
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  align-items: center;
+}
+
+.item {
+  background-color: #1EAAFC;
+  background-image: linear-gradient(13-deg, #6C52D9 0%, #1EAAFC 85%, #3EDFD7 100%);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  color: #ffffff;
+  border-radius: 5px;
+  border: 6px solid #171717;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  
+  .title {
+    font-family: "Times New Roman", Times, serif;
+    margin-left: 10px;
+    color: black;
+  }
+
+  .code {
+    font-family: Lucida Console, Courier, monospace;
+    font-size: .8em;
+    margin-left: 10px;
+    color: black;
+  }
+}
+
+.container .item {
+  border-radius: 50px;
+  border: 3px solid #353535;
+}
+
+.container-b .item {
+  border-radius: 25px;
+  border: 3px dotted #553322;
+}
+
+.header {
+  background-color: #1EAAFC;
+  background-image: linear-gradient(160deg, #6C52D9 0%, #9B8AE6 127%);
+}
+
+.container .header {
+  background-image: linear-gradient(160deg, #8B0000 0%, #FFC0CB 127%);
+}
+
+.sidebar {
+  background-image: linear-gradient(230deg, #3EDFD7 0%, #29A49D 90%);
+}
+
+.content-1,
+.content-2,
+.content-3 {
+  background-image: linear-gradient(130deg, #6C52D9 0%, #1EAAFC 85%, #3EDFD7 100%);
+}
+
+.footer {
+  background-color: #6C52D9;
+  background-image: linear-gradient(230deg, #3EDFD7 0%, #29A49D 90%);
+}
+

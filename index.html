@@ -3,10 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>Mozilla Grid Layout Demo</title>
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
   <link rel="stylesheet" href="style.css">
+  <style>
+    svg {
+      position: absolute;
+    }
+  </style>
 </head>
 <body>
   <div class="container-b">
+    <svg width="100%" height="100%">
+      <line id="gridLineH2" x1="0px" y1="40px" x2="800px" y2="40px" stroke="blue" stroke-width="3"/>
+    </svg>
     <div class="item header">header <span class="title">Basic Layout</span></div>
     <div class="item sidebar">sidebar</div>
     <div class="item content-1">Content-1<span class="code">grid-template-columns: 100px 2fr 1fr;<br/>grid-template-rows: 40px 2fr 1fr 25px;<br/>grid-row: 2 / 3;<br/>grid-column: 2 / 4;</span></div>
@@ -15,6 +24,9 @@
     <div class="item footer">footer</div>
   </div>
   <div class="container-a">
+    <svg width="100%" height="100%">
+      <use xlink:href="#gridLineH2" />
+    </svg>
     <div class="item header">header <span class="title">Template Areas</span></div>
     <div class="item sidebar">sidebar</div>
     <div class="item content-1">Content-1<span class="code">grid-template-columns: 100px 2fr 1fr;<br/>grid-template-rows: 40px 2fr 1fr 25px;<br/>grid-template-areas:...<br/>grid-area: content-1;</span></div>
@@ -23,6 +35,9 @@
     <div class="item footer">footer</div>
   </div>
   <div class="container">
+    <svg width="100%" height="100%">
+      <use xlink:href="#gridLineH2" />
+    </svg>
     <div class="item header">header <span class="title">Named Lines</span></div>
     <div class="item sidebar">sidebar</div>
     <div class="item content-1">Content-1<span class="code">grid-template-columns: [m-st cnt-st] 200px ...<br/>grid-template-rows: [row1-st] 40px ...<br/>grid-column: cnt-st / cnt-ed;<br/>grid-row: row2-st / row3-st;</span></div>
